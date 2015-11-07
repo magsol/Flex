@@ -13,7 +13,8 @@
 <article>
   <header>
     <h1 id="{{ article.slug }}">{{ article.title }}</h1>
-    <p>Posted on {{ article.locale_date }} in <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a></p>
+    <p>Posted on {{ article.locale_date }}<br />
+    Categorized in <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a></p>
   </header>
   <div>
     {{ article.content }}
