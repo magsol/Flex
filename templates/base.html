@@ -39,7 +39,9 @@
   <title>{{ SITENAME }}{% block title %}{% endblock %}</title>
 </head>
 <body>
-  {% include "partial/gtm.html" %}
+  {% if GOOGLE_TAG_MANAGER %}
+    {% include "partial/gtm.html" %}
+  {% endif %}
   <aside>
     <div>
       <a href="{{ SITEURL }}">
@@ -91,16 +93,31 @@
       {% if CC_LICENSE %}
         {% include "partial/cc_license.html" %}
       {% else %}
-      <p>&copy; {{ AUTHOR }} {{ COPYRIGHT_YEAR }}</p>
-      {% include "partial/flex.html" %}
-      {% include "partial/statuscake.html" %}
+        <p>&copy; {{ AUTHOR }} {{ COPYRIGHT_YEAR }}</p>
+        {% include "partial/flex.html" %}
+        {% if STATUSCAKE %}
+          {% include "partial/statuscake.html" %}
+        {% endif %}
       {% endif %}
     </footer>
   </main>
-  {% include "partial/ga.html" %}
-  {% if ADD_THIS_ID %}
-  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid={{ ADD_THIS_ID }}" async="async"></script>
+
+  {% if GOOGLE_ANALYTICS %}
+    {% include "partial/ga.html" %}
   {% endif %}
+
+  {% if GUAGES %}
+    {% include "partial/guages.html" %}
+  {% endif %}
+
+  {% if ADD_THIS_ID %}
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid={{ ADD_THIS_ID }}" async="async"></script>
+  {% endif %}
+
+  {% if PIWIK_URL and PIWIK_SITE_ID %}
+    {% include "partial/piwik.html" %}
+  {% endif %}
+
   {% block additional_js %}{% endblock %}
 </body>
 </html>
