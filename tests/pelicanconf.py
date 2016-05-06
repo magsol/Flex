@@ -11,6 +11,7 @@ SITESUBTITLE = u'Test'
 SITEDESCRIPTION = u'%s\'s Thoughts and Writings' % AUTHOR
 SITELOGO = u'https://www.example.com/img/profile.png'
 FAVICON = SITEURL + '/images/favicon.ico'
+BROWSER_COLOR = '#333'
 
 ROBOTS = u'index, follow'
 
@@ -52,7 +53,8 @@ DEFAULT_PAGINATION = 10
 
 STATUSCAKE = {
     'trackid': 'test-test',
-    'days': 7
+    'days': 7,
+    'rumid': 1234,
 }
 
 RELATIVE_URLS = False
@@ -62,8 +64,11 @@ CATEGORY_FEED_ATOM = 'feeds/%s.atom.xml'
 
 DELETE_OUTPUT_DIRECTORY = False
 
+DEFAULT_PAGINATION = 5
+SUMMARY_MAX_LENGTH = 150
+
 DISQUS_SITENAME = "test-test"
 GOOGLE_ANALYTICS = "UA-XXXXXX-X"
 ADD_THIS_ID = 'ra-XX3242XX'
 
-USE_LESS = False
+USE_LESS = True
