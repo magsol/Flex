@@ -3,6 +3,14 @@
 
 from __future__ import unicode_literals
 
+# Optional 'neighbors' plugin adds previous/next post buttons to articles.
+PLUGIN_PATHS = ['../plugins']
+PLUGINS = ['i18n_subsites', 'neighbors']
+
+JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n',
+                                    'jinja2.ext.autoescape',
+                                    'jinja2.ext.with_']}
+
 AUTHOR = u'Test'
 SITEURL = u'http://localhost:8000'
 SITENAME = u"Test Blog"
@@ -48,8 +56,6 @@ CC_LICENSE = {
 }
 
 COPYRIGHT_YEAR = 2016
-
-DEFAULT_PAGINATION = 10
 
 STATUSCAKE = {
     'trackid': 'test-test',
